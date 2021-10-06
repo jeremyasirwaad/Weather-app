@@ -44,18 +44,19 @@ body
   width: 100px;
   justify-content: space-evenly;
   align-items: center;
+  cursor: pointer;
 }
 
 .degree
 {
-  font-size: 40px;
+  font-size: 65px;
 }
 
 .celcius span
 {
-  font-size: 35px;
+  font-size: 65px;
 }
 
 nav p {
-  font-size: 10px;
+  font-size: 20px;
 }

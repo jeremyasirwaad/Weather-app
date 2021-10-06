@@ -6,7 +6,7 @@ window.addEventListener("load",()=>{
   let unit = document.querySelector('.unit');
   let content = document.querySelector('.content');
   let logo = document.querySelector('.logo');
-  console.log(logo.src);
+  let container = document.querySelector('.celcius');
 
   if(navigator.geolocation)
   {
@@ -25,11 +25,24 @@ window.addEventListener("load",()=>{
           console.log(data);
           const{name} = data;
           const{temp} = data.main;
+          let tempinfaren = Math.round(((temp-273.15) * 1.8) + 32);
           const{description , icon} = data.weather[0];
-          degree.textContent = temp;
+          degree.textContent = tempinfaren;
           content.textContent = description;
           timezone.textContent = name;
           logo.src = `http://openweathermap.org/img/wn/${icon}@2x.png`
+          let tempincel = Math.round((tempinfaren - 32) * 0.5555);
+          container.addEventListener('click', ()=>{
+            if(unit.textContent === 'F')
+            {
+              unit.textContent = "C";
+              degree.textContent = tempincel;
+            }
+            else{
+              unit.textContent = "F";
+              degree.textContent = tempinfaren;
+            }
+        })
         });
     });
   }
